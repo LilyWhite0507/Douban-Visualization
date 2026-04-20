@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Douban Movie Explorer</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+<body>
+  <div id="intro-screen" class="intro-screen">
+    <div class="intro-stack">
+      <div class="intro-orb" id="enter-app-btn">
+        <span class="orb-core">▶</span>
+        <p>Tap To Start Exploration</p>
+      </div>
+      <div class="guide-copy">
+        <p>Explore the two extremes of Douban’s film world.</p>
+        <p>This visualization gathers the top 1500 highest-rated and bottom 1500 lowest-rated movies, </p>
+        <p>turning them into an interactive universe.</p>
+        <p>Click on any particle to see its details, and use the toggle to compare how themes, countries, and eras differ between beloved films and box-office flops.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header class="hero">
+      <p class="hero-kicker">DOUBAN MOVIE COSMOS</p>
+      <div class="hero-title-row">
+        <h1 id="scene-title">Particle Overview</h1>
+        <button id="dataset-toggle" class="dataset-toggle" type="button" aria-pressed="false">
+          HIGH SCORE
+        </button>
+      </div>
+      <p id="scene-desc" class="hero-desc">
+        Every dot is a movie. Hover to reveal details and click the arrow to travel across dimensions.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-shell">
+        <div id="year-tags" class="tag-row hidden"></div>
+        <div id="director-controls" class="director-controls hidden"></div>
+        <svg id="viz-canvas"></svg>
+        <div id="rating-rank-panel" class="rating-rank-panel hidden"></div>
+        <div id="director-chart-panel" class="director-chart-panel hidden"></div>
+        <div id="hover-tip" class="hover-tip hidden"></div>
+      </section>
+
+      <aside class="detail-panel">
+        <h3 id="detail-name">Hover a Particle</h3>
+        <div class="detail-hero" id="detail-hero">
+          <div class="detail-placeholder">No Cover</div>
+        </div>
+        <p class="meta-line"><span>Score</span><strong id="detail-score">-</strong></p>
+        <p class="meta-line"><span>Votes</span><strong id="detail-votes">-</strong></p>
+        <p class="meta-line"><span>Year</span><strong id="detail-year">-</strong></p>
+        <p class="meta-line"><span>Genres</span><strong id="detail-genres">-</strong></p>
+        <p class="meta-line"><span>Region</span><strong id="detail-region">-</strong></p>
+        <p class="meta-line"><span>Director</span><strong id="detail-director">-</strong></p>
+        <p class="meta-line"><span>Actors</span><strong id="detail-actors">-</strong></p>
+        <p class="meta-story" id="detail-story">Movie details appear here.</p>
+      </aside>
+    </main>
+
+    <button id="prev-scene" class="nav-arrow nav-arrow-left" aria-label="Previous scene">←</button>
+    <button id="next-scene" class="nav-arrow nav-arrow-right" aria-label="Next scene">→</button>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
